@@ -7,4 +7,4 @@ Repositório que irá guardar os conteúdos desenvolvidos na UC.
 
 - **Nome:** Marta Sofia Matos Castela Queirós Gonçalves
 - **ID:** A100593
-- **Foto:** ![Fotografia] foto.jpeg
+- **Foto:** [Fotografia](foto.jpeg)
