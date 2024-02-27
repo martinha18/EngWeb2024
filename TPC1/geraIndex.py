@@ -3,7 +3,7 @@ import os
 import re
 
 
-pasta = '/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/MapaRuas-materialBase/MapaRuas-materialBase/texto'
+pasta = '/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/MapaRuas-materialBase/texto'
 
 ficheiros = os.listdir(pasta)
 
@@ -46,7 +46,7 @@ preHTML = """
                 <h3>Lista das Ruas</h3>
             </header>
 
-            <div class="w3-container" class="background-image-container" style="width: 100%; margin: 0 auto; background-image: url('/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/background.webp'); background-size: cover; background-position: center;">
+            <div class="w3-container" class="background-image-container" style="width: 100%; margin: 0 auto; background-image: url('/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/MapaRuas-materialBase/mapa-site/background.webp'); background-size: cover; background-position: center;">
                 <ul class="w3-ul w3-card-4" style="width: 40%; margin: 0 auto;">
 """
 
@@ -64,6 +64,6 @@ posHTML = """
 
 pagHTML = preHTML + conteudo + posHTML
 
-f = open('/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/mapa-site/indexruas.html', 'w')
+f = open('/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/MapaRuas-materialBase/mapa-site/indexruas.html', 'w')
 f.write(pagHTML)
 f.close()

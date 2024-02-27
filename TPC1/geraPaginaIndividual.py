@@ -1,68 +1,64 @@
 import xml.etree.ElementTree as ET
 import os
+import re
 
-pasta = '/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/MapaRuas-materialBase/MapaRuas-materialBase/texto'
+pasta = '/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/MapaRuas-materialBase/texto'
 
 ficheiros = os.listdir(pasta)
 
 def imagens_antigas(corpo):
-    imagens = """
-        <div>
-            <h5>Imagens antigas:</h5>
-    """
+    imagens = ""
     for figura in corpo.findall('figura'):
-        imagens += f"<img src={figura.find('imagem').attrib['path']} alt={figura.find('legenda').text}/>\n"
+        imagens += f"<img src=\"{figura.find('imagem').attrib['path']}\" alt=\"{figura.find('legenda').text}\" style=\"width: 90%;\"/>\n"
 
-    imagens += """
-        </div>
-    """
+    return imagens
+
+def imagens_novas(nome,id):
+    #nome_maiusculas = re.sub(r" ([a-z])", lambda x: x.group(1).upper(), nome)
+    nome_sem_espacos = re.sub(r" ","",nome)
+    imagens = f"<img src=\"../atual/{id}-{nome_sem_espacos}-Vista1.JPG\" alt=\"{id} - {nome} - Vista 1\" style=\"width: 45%;\"/>\n<img src=\"../atual/{id}-{nome_sem_espacos}-Vista2.JPG\" alt=\"{id} - {nome} - Vista 2\" style=\"width: 45%;\"/>\n"
     return imagens
 
 def infos(corpo):
-    descricao = """
-        <div>
-            <h5>Descrição:</h5>
-    """
+    descricao = ""
     for paragrafo in corpo.findall('para'):
-        descricao += f"<p>{paragrafo}</p>\n"
+        para_text = ''.join(ET.tostring(e, encoding='unicode', method='text') for e in paragrafo.iter())
+        descricao += f"<p>{para_text}</p>\n"
     
-    descricao += """
-        </div>
-    """
     return descricao
         
 def lista_casas(corpo):
     lista_de_casas = """
-        <div class="w3-container>
-            <h5>Casas da Rua</h5>
+        <div class="w3-container">
             <ul class="w3-ul">
     """
 
     lista = corpo.find('lista-casas')
-    for casa in lista.findall('casa'):
-        numero = casa.find('número').text if casa.find('número') is not None else '???'
-        enfiteuta = casa.find('enfiteuta').text if casa.find('enfiteuta') is not None else '???'
-        foro = casa.find('foro').text if casa.find('foro') is not None else '???'
-        descricao = infos(casa.find('desc')) if casa.find('desc') is not None else '???'
+    if lista is not None:
+        for casa in lista.findall('casa'):
+            numero = casa.find('número').text if casa.find('número') is not None else '???'
+            enfiteuta = casa.find('enfiteuta').text if casa.find('enfiteuta') is not None else '???'
+            foro = casa.find('foro').text if casa.find('foro') is not None else '???'
+            descricao = infos(casa.find('desc')) if casa.find('desc') is not None else '???'
 
-        lista_de_casas += f"""
-            <li>
-                <table>
-                    <tr>
-                        <td><b>Número</b></td> <td>{numero}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Enfiteuta</b></td> <td>{enfiteuta}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Foro</b></td> <td>{foro}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Descrição</b></td> <td>{descricao}</td>
-                    </tr>
-                </table>
-            </li>
-        """
+            lista_de_casas += f"""
+                <li>
+                    <table>
+                        <tr>
+                            <td><b>Número</b></td> <td>{numero}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Enfiteuta</b></td> <td>{enfiteuta}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Foro</b></td> <td>{foro}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Descrição</b></td> <td>{descricao}</td>
+                        </tr>
+                    </table>
+                </li>
+            """
     
     lista_de_casas += """
             </ul>
@@ -81,7 +77,7 @@ for arquivo in ficheiros:
 
     print(nome)
 
-    f = open(f'/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/mapa-site/rua{id}.html', 'w')
+    f = open(f'/home/marta/Desktop/Marta/EW/EngWeb2024/TPC1/MapaRuas-materialBase/mapa-site/rua{id}.html', 'w')
     pagHTML = f"""
     <html>
         <head>
@@ -96,11 +92,25 @@ for arquivo in ficheiros:
                     <h3>{nome}</h3>
                 </header>
 
-                {imagens_antigas(corpo)}
+                <div>
+                    <h3>Imagens antigas:</h3>
+                    {imagens_antigas(corpo)}
+                </div>
 
-                {infos(corpo)}
+                <div>
+                    <h3>Imagens atuais:</h3>
+                    {imagens_novas(nome,id)}
+                </div>
 
-                {lista_casas(corpo)}
+                <div>
+                    <h3>Descrição:</h3>
+                    {infos(corpo)}
+                </div>
+
+                <div>
+                    <h3>Lista das casas</h3>
+                    {lista_casas(corpo)}
+                </div>
 
                 <footer class="w3-container w3-green">
                     <h5> Generated by Marta Gonçalves::EngWeb2024 </h5>
