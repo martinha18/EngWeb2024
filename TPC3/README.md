@@ -1,5 +1,5 @@
-# TPC3: ???
-## Data a definir
+# TPC3: GET Requests
+## 2024-02-26
 
 ## Autor
 
@@ -8,4 +8,15 @@
 
 ## Resumo
 
-O resumo será realizado aquando da realização do TPC
+Para este trabalho pretendia-se analisar o dataset filmes.json e criar a base de dados em json-server.
+
+O serviço deve responder às seguintes rotas:
+
+- filmes
+- filmes/idFilme
+
+- generos
+- generos/idGenero
+
+- ator
+- ator/idAtor

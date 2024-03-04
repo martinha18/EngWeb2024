@@ -1,5 +1,5 @@
-# TPC2: ???
-## Data a definir
+# TPC2: json-server
+## 2024-02-19
 
 ## Autor
 
@@ -8,4 +8,6 @@
 
 ## Resumo
 
-O resumo será realizado aquando da realização do TPC
+O objetivo deste trabalho era processar o dataset mapa-virtual.json, criando uma página rincipal com uma lista ordenada alfabeticamente das cidades que levam para a página da cidade correspondente, sendo esta conseguida através de uma chamada ao servidor.
+
+Cada página de cidade deve conter o seu nome,  id, distrito, polpulação e ainda as suas ligações.
