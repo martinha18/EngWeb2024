@@ -1,5 +1,5 @@
-# TPC4: ???
-## Data a definir
+# TPC4: CRUD
+## 2024-03-04
 
 ## Autor
 
@@ -8,4 +8,14 @@
 
 ## Resumo
 
-O resumo será realizado aquando da realização do TPC
+Colocar o dataset compositores.json no json-server.
+
+#### Rotas importantes:
+
+- /compositores
+- /compositores/{id}
+- /compositores?período={período}
+- /periodos
+- /periodos/{id}
+
+Implementar as operações de CRUD sobre os compositores e os períodos

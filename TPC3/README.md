@@ -18,5 +18,5 @@ O serviço deve responder às seguintes rotas:
 - generos
 - generos/idGenero
 
-- ator
-- ator/idAtor
+- atores
+- atores/idAtor

@@ -8,6 +8,6 @@
 
 ## Resumo
 
-O objetivo deste trabalho era processar o dataset mapa-virtual.json, criando uma página rincipal com uma lista ordenada alfabeticamente das cidades que levam para a página da cidade correspondente, sendo esta conseguida através de uma chamada ao servidor.
+O objetivo deste trabalho era processar o dataset mapa-virtual.json, criando uma página principal com uma lista ordenada alfabeticamente das cidades que levam para a página da cidade correspondente, sendo esta conseguida através de uma chamada ao servidor.
 
-Cada página de cidade deve conter o seu nome,  id, distrito, polpulação e ainda as suas ligações.
+Cada página de cidade deve conter o seu nome,  id, distrito, população e ainda as suas ligações.
