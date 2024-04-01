@@ -1,5 +1,5 @@
 # TPC6: ???
-## Data a definir
+## 2024-03-18
 
 ## Autor
 
@@ -8,4 +8,8 @@
 
 ## Resumo
 
-O resumo será realizado aquando da realização do TPC
+Colocar dataset (compositores.json) no MongoDB.
+
+Criar uma API de dados REST que recebe mensagens http e envia json.
+
+Criar uma interface para esta api de dados.
