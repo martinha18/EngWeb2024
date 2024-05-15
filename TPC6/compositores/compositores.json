@@ -1,5 +1,4 @@
-{
-  "compositores": [
+[
     {
       "id": "C26",
       "nome": "Alessandro Marcello",
@@ -1352,27 +1351,4 @@
       "dataObito": "2222-02-18",
       "periodo": "Barroco"
     }
-  ],
-  "periodos": [
-    {
-      "id": "P1",
-      "nome": "Barroco"
-    },
-    {
-      "id": "P2",
-      "nome": "Renascimento"
-    },
-    {
-      "id": "P3",
-      "nome": "Clássico"
-    },
-    {
-      "id": "P4",
-      "nome": "Romântico"
-    },
-    {
-      "id": "P5",
-      "nome": "Moderno"
-    }
-  ]
-}
+]
