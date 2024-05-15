@@ -1,0 +1,22 @@
+[
+    {
+      "_id": "P1",
+      "nome": "Barroco"
+    },
+    {
+      "_id": "P2",
+      "nome": "Renascimento"
+    },
+    {
+      "_id": "P3",
+      "nome": "Clássico"
+    },
+    {
+      "_id": "P4",
+      "nome": "Romântico"
+    },
+    {
+      "_id": "P5",
+      "nome": "Moderno"
+    }
+]

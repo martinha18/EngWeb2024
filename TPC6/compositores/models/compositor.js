@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 
 var compositorSchema = new mongoose.Schema({
-    id: String,
+    _id: String,
     nome: String,
     bio: String,
     dataNasc: String,
