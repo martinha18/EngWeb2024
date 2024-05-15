@@ -13,9 +13,11 @@ module.exports.insert = function(compositor){
 }
 
 module.exports.updateCompositor = function(id, compositor){
-    return Compositor.updateOne({_id:id},compositor)
+    var objectId = mongoose.Types.ObjectId(id);
+    console.log(objectId)
+    return Compositor.updateOne({_id: objectId},compositor)
 }
 
 module.exports.deleteCompositor = function(id){
-    return Compositor.deleteOne({_id:id})
+    return Compositor.deleteOne({id:id})
 }

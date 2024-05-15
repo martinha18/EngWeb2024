@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 //MongoDB conection
 var mongoose = require('mongoose')
-var mongoDB = 'mongodb://127.0.0.1/EngWeb2024'
+var mongoDB = 'mongodb://127.0.0.1/compositores' //! nome da db
 mongoose.connect(mongoDB,{useNewUrlParser: true, useUnifiedTopology: true})
 var db = mongoose.connection
 db.on('error',console.error.bind(console,'Erro de conexão ao MongoDB'))
