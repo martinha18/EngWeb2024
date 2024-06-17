@@ -1,4 +1,4 @@
-# TPC5: ???
+# TPC5: Interface Node.js
 ## Data a definir
 
 ## Autor
@@ -8,4 +8,4 @@
 
 ## Resumo
 
-Igual ao tpc4 mas com express e template pugs
+Utilização do Node.js com templates pug para criar uma interface para os compositores
