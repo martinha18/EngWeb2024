@@ -1,0 +1,31 @@
+extends layout 
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue-gray
+            h1 Notas
+
+        fieldset.w3-light-gray.w3-margin
+            table.w3-table
+                thead
+                    tr 
+                        th UC
+                        th Projeto
+                        th Teste
+                        th Exame 
+                         
+                tbody
+                    each notasAluno in notasAlunos
+                        tr
+                            td #{notasAluno.uc}
+                            td #{notasAluno.projeto}
+                            td #{notasAluno.teste} 
+                            td #{notasAluno.exame}
+
+        
+        a(href="/perfil/"+alunoID+"?token="+aluno.token)
+            button.w3-button.w3-blue-gray.w3-margin-left.w3-margin-bottom Voltar
+
+        footer.w3-container.w3-blue-gray
+            h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                a(href="https://www.w3schools.com/w3css/default.asp") w3.css

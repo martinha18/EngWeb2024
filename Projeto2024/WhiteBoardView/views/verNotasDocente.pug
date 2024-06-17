@@ -1,0 +1,96 @@
+extends layout 
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue-gray
+            h1 Notas 
+
+        h2.w3-margin-left Informações sobre as notas dos alunos
+        // Tabela de médias e % de reprovação por tipo de avaliação
+        fieldset.w3-light-gray.w3-margin
+            table.w3-table
+                thead
+                    tr
+                        th Avaliação
+                        th Média
+                        th % de Reprovados
+                        th % de Alunos sem Avaliação
+                tbody
+                    // Projeto
+                    - var totalNotasProjeto = 0;
+                    - var numAlunosProjeto = uc.notas.length;
+                    - var numReprovadosProjeto = 0;
+                    - for(var i = 0; i < numAlunosProjeto; i++) {
+                    -     var notaProjeto = parseFloat(uc.notas[i].projeto.replace(',', '.'));
+                    -     totalNotasProjeto += notaProjeto;
+                    -     if(notaProjeto < 10) {
+                    -         numReprovadosProjeto++;
+                    -     }
+                    - }
+                    tr
+                        td Projeto
+                        td #{(totalNotasProjeto / numAlunosProjeto).toFixed(2)}
+                        td #{((numReprovadosProjeto / numAlunosProjeto) * 100).toFixed(2)}%
+                        td #{(((uc.alunos.length - numAlunosProjeto) / uc.alunos.length) * 100).toFixed(2)}%
+
+                    // Teste
+                    - var totalNotasTeste = 0;
+                    - var numAlunosTeste = uc.notas.length;
+                    - var numReprovadosTeste = 0;
+                    - for(var i = 0; i < numAlunosTeste; i++) {
+                    -     var notaTeste = parseFloat(uc.notas[i].teste.replace(',', '.'));
+                    -     totalNotasTeste += notaTeste;
+                    -     if(notaTeste < 10) {
+                    -         numReprovadosTeste++;
+                    -     }
+                    - }
+                    tr
+                        td Teste
+                        td #{(totalNotasTeste / numAlunosTeste).toFixed(2)}
+                        td #{((numReprovadosTeste / numAlunosTeste) * 100).toFixed(2)}%
+                        td #{(((uc.alunos.length - numAlunosTeste) / uc.alunos.length) * 100).toFixed(2)}%
+
+                    // Exame
+                    - var totalNotasExame = 0;
+                    - var numAlunosExame = uc.notas.length;
+                    - var numReprovadosExame = 0;
+                    - for(var i = 0; i < numAlunosExame; i++) {
+                    -     var notaExame = parseFloat(uc.notas[i].exame.replace(',', '.'));
+                    -     totalNotasExame += notaExame;
+                    -     if(notaExame < 10) {
+                    -         numReprovadosExame++;
+                    -     }
+                    - }
+                    tr
+                        td Exame
+                        td #{(totalNotasExame / numAlunosExame).toFixed(2)}
+                        td #{((numReprovadosExame / numAlunosExame) * 100).toFixed(2)}%
+                        td #{(((uc.alunos.length - numAlunosExame) / uc.alunos.length) * 100).toFixed(2)}%
+
+        h2.w3-margin-left Notas dos alunos
+        // Tabela de notas
+        fieldset.w3-light-gray.w3-margin
+            table.w3-table
+                thead
+                    tr 
+                        th Aluno 
+                        th Projeto
+                        th Teste
+                        th Exame 
+                         
+                tbody
+                    each avaliacao in uc.notas 
+                        tr
+                            td #{avaliacao.aluno}
+                            td #{parseFloat(avaliacao.projeto.replace(',', '.')).toFixed(2)}
+                            td #{parseFloat(avaliacao.teste.replace(',', '.')).toFixed(2)}
+                            td #{parseFloat(avaliacao.exame.replace(',', '.')).toFixed(2)}
+
+        
+        
+        a(href="/ucs/"+idUC+'/docente/'+idAluno+"?token="+docente.token)
+            button.w3-button.w3-blue-gray.w3-margin-left.w3-margin-bottom Voltar
+
+        footer.w3-container.w3-blue-gray
+            h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                a(href="https://www.w3schools.com/w3css/default.asp") w3.css

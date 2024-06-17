@@ -1,0 +1,100 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue-gray
+            h1 Informações da UC
+
+        .w3-margin.w3-flex-container
+            .w3-left
+                h2
+                    b Sobre a UC:
+            if docente
+                .w3-right.w3-margin-top
+                    a(href="/ucs/"+uc._id+"/docente/"+idUser+"/editar?token="+user.token)
+                        button.w3-button.w3-blue-gray Editar informações da UC
+
+        .w3-container.w3-margin-bottom.w3-margin-top
+            ul.w3-ul.w3-border.w3-margin-bottom
+                li.w3-light-gray
+                    b Nome da UC:
+                    |  #{uc._id}
+                li.w3-light-gray
+                    b Docentes:
+                    ul 
+                        each docente in professores
+                            li= docente
+
+                li.w3-light-gray
+                    b Horários Teóricos:
+                    ul
+                        each horario in uc.horario.teoricas
+                            li= horario
+
+                li.w3-light-gray
+                    b Horários Práticos:
+                    ul
+                        each horario in uc.horario.praticas
+                            li= horario
+
+                li.w3-light-gray
+                    b Avaliação:
+                    ul
+                        each avaliacao in uc.avaliacao
+                            li= avaliacao 
+
+                li.w3-light-gray
+                    b Datas Avaliação:
+                    ul
+                        li Teste: #{uc.datas.teste} 
+                        li Exame: #{uc.datas.exame} 
+                        li Projeto: #{uc.datas.projeto} 
+        
+        if docente
+            .w3-margin.w3-flex-container
+                h2 
+                    b Notas:
+
+                a(href="/ucs/"+uc._id+"/docente/"+idUser+"/notas?token="+user.token).w3-margin-right
+                    button.w3-button.w3-blue-gray Ver notas
+
+                a(href="/ucs/"+uc._id+"/docente/"+idUser+"/modificarNotas?token="+user.token)
+                    button.w3-button.w3-blue-gray Modificar notas
+
+        if (uc.aulas.length > 0)
+            .w3-margin.w3-flex-container
+                .w3-left 
+                    h2 
+                        b Aulas:
+
+        if docente
+            .w3-margin.w3-flex-container
+                a(href="/ucs/"+uc._id+"/docente/"+idUser+"/adicionarAula?token="+user.token).w3-right
+                    button.w3-button.w3-blue-gray Adicionar Aula
+
+        .w3-container.w3-margin-bottom.w3-margin-top
+            each aula in uc.aulas.sort((a, b) => new Date(b.data) - new Date(a.data))
+                ul.w3-ul.w3-border.w3-margin-bottom
+                    li.w3-light-gray
+                        b Tipo:
+                        |  #{aula.tipo}
+                    li.w3-light-gray
+                        b Data:
+                        |  #{aula.data}
+                    li.w3-light-gray
+                        b Sumário:
+                        ul
+                            each linha in aula.sumario
+                                li= linha 
+                    if docente
+                        li.w3-light-gray
+                            form(action=`/ucs/${uc._id}/docente/${idUser}/eliminarAula/${aula._id}?token=${user.token}`, method='post')
+                                button.w3-button.w3-blue-gray(type='submit') Eliminar Aula
+
+        .w3-container
+            a(href="/paginaInicial/"+idUser+"?token="+user.token).w3-left.w3-margin-bottom
+                button.w3-button.w3-blue-gray Voltar  
+
+        footer.w3-container.w3-blue-gray
+            h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                a(href="https://www.w3schools.com/w3css/default.asp") w3.css

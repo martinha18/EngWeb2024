@@ -1,0 +1,34 @@
+services:
+  whiteboardapi:
+    container_name: WhiteBoardAPI
+    build:
+      context: ./WhiteBoardAPI
+    ports:
+      - "10000:10000"
+    depends_on:
+      - mongodb
+        
+  whiteboardview:
+    container_name: WhiteBoardView
+    build:
+      context: ./WhiteBoardView
+    ports:
+      - "10001:10001"
+    depends_on:
+      - whiteboardapi
+  
+  mongodb:
+    container_name: WhiteBoardMongo
+    image: mongo
+    ports:
+      - "27017:27017"
+  
+  whiteboardimport:
+    container_name: WhiteBoardImport
+    build:
+      context: ./
+    volumes:
+      - ./data:/data
+    command: python3 WhiteBoardImport.py /data setup
+    depends_on:
+      - whiteboardapi

@@ -1,0 +1,52 @@
+extends layout 
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue-gray
+            h1 Editar informações da UC 
+
+        form.w3-container(method="POST")
+            fieldset.w3-light-gray.w3-margin-top
+                .w3-section
+                    label.w3-text-black(style="font-weight: bold;") ID da UC: 
+                    |  #{uc._id}
+
+                .w3-section
+                    label.w3-text-black(style="font-weight: bold;") Título da UC:
+                    |  #{uc.titulo}
+
+                .w3-section
+                    label.w3-text-black(style="font-weight: bold;") Horário Teórico:
+                    textarea.w3-input.w3-border(name="horarioTeorico" id="horarioTeorico" placeholder="Insira os horários das aulas teóricas separados por \\n")
+                        | #{uc.horario.teoricas.join('\n')}
+
+                .w3-section
+                    label.w3-text-black(style="font-weight: bold;") Horário Prático:
+                    textarea.w3-input.w3-border(name="horarioPratico" id="horarioPratico" placeholder="Insira os horários das aulas práticas separados por vírgulas")
+                        | #{uc.horario.praticas.join('\n')}
+
+                .w3-section
+                    label.w3-text-black(style="font-weight: bold;") Avaliação:
+                    textarea.w3-input.w3-border(name="avaliacao" id="avaliacao" placeholder="Insira os métodos de avaliação separados por \\n")
+                        | #{uc.avaliacao.join('\n')}
+
+                .w3-section
+                    label.w3-text-black(style="font-weight: bold;") Teste:
+                    input.w3-input.w3-border(name="dataTeste" id="dataTeste" type="text" placeholder="Insira a data do teste" value=uc.datas.teste)
+                
+                .w3-section
+                    label.w3-text-black(style="font-weight: bold;") Exame:
+                    input.w3-input.w3-border(name="dataExame" id="dataExame" type="text" placeholder="Insira a data do exame" value=uc.datas.exame)
+                
+                .w3-section
+                    label.w3-text-black(style="font-weight: bold;") Projeto:
+                    input.w3-input.w3-border(name="dataProjeto" id="dataProjeto" type="text" placeholder="Insira a data do projeto" value=uc.datas.projeto)
+
+            .w3-section
+                a(href="/ucs/"+uc._id+"/docente/"+idDocente+"?token="+docente.token)
+                    button.w3-button.w3-blue-gray Voltar
+                button.w3-button.w3-blue-gray.w3-right(type="submit") Submeter
+
+        footer.w3-container.w3-blue-gray
+            h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                a(href="https://www.w3schools.com/w3css/default.asp") w3.css

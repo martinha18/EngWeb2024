@@ -1,0 +1,34 @@
+extends layout 
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue-gray
+            h1 Modificar Notas
+
+        form.w3-container(method="POST")
+            fieldset.w3-light-gray.w3-margin-top
+                .w3-section
+                    label(style="font-weight: bold;") ID do Aluno: 
+                    span.w3-text-black #{aluno}
+
+                .w3-section
+                    label(style="font-weight: bold;") Nota do projeto:  
+                    input.w3-input.w3-border.w3-text-black(type="text" name="notaProjeto" id="notaProjeto" placeholder="Insira a nota do projeto" pattern="^(0|[0-9](,[0-9]{1,2})?|1[0-9](,[0-9]{1,2})?|20)$" value=notas.projeto)
+
+                .w3-section
+                    label(style="font-weight: bold;") Nota do teste:  
+                    input.w3-input.w3-border.w3-text-black(type="text" name="notaTeste" id="notaTeste" placeholder="Insira a nota do teste" pattern="^(0|[0-9](,[0-9]{1,2})?|1[0-9](,[0-9]{1,2})?|20)$" value=notas.teste)
+
+                .w3-section
+                    label(style="font-weight: bold;") Nota do exame:  
+                    input.w3-input.w3-border.w3-text-black(type="text" name="notaExame" id="notaExame" placeholder="Insira a nota do exame" pattern="^(0|[0-9](,[0-9]{1,2})?|1[0-9](,[0-9]{1,2})?|20)$" value=notas.exame)
+
+            .w3-section 
+                a(href=`/ucs/${uc}/docente/${docente}/modificarNotas?token=${token}`)
+                    button.w3-button.w3-blue-gray(type="button") Voltar
+
+                button.w3-button.w3-blue-gray.w3-right(type="submit") Submeter 
+
+        footer.w3-container.w3-blue-gray
+            h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                a(href="https://www.w3schools.com/w3css/default.asp") w3.css

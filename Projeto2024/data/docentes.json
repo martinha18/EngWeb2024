@@ -1,0 +1,21 @@
+[
+    {
+        "_id": "d1",
+        "nome": "José Carlos Ramalho",
+        "foto": "d1.jpeg",
+        "categoria": "Professor/Investigador/Empresário",
+        "filiacao": "Dep. Informática - Universidade do Minho",
+        "email": "jcr@di.uminho.pt",
+        "webpage": "http://www.di.uminho.pt/~jcr",
+        "password": "9999"
+    },
+    {
+        "_id": "d13753",
+        "nome": "Tiago Manuel Queirós Barata",
+        "foto": "d13753.jpg",
+        "categoria": "Professor Convidado",
+        "filiacao": "Dep. Informática - Universidade do Minho",
+        "email": "d13753@di.uminho.pt",
+        "password": "6666"
+    }
+]

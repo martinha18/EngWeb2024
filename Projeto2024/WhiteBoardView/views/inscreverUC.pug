@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue-gray
+            h1 Inscrever numa UC
+        
+        .w3-container
+            form.w3-margin-bottom.w3-margin-top(method="POST")
+                fieldset.w3-light-gray
+                    .w3-section
+                        label
+                            b Identificador da UC: 
+                        input.w3-input.w3-border(type="text" name="_id")
+                    .w3-section
+                        label 
+                            b Código da UC:
+                        input.w3-input.w3-border(type="text" name="codUC")
+                
+                button.w3-button.w3-blue-gray.w3-right.w3-margin-top.w3-margin-bottom(type="submit") Confirmar 
+                    
+            a(href="/perfil/"+userID+"?token="+user.token).w3-left.w3-margin-bottom
+                button.w3-button.w3-blue-gray Voltar 
+
+        footer.w3-container.w3-blue-gray
+            h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                a(href="https://www.w3schools.com/w3css/default.asp") w3.css

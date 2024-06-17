@@ -1,0 +1,87 @@
+extends layout
+
+block content
+    if isDocente 
+        .w3-card-4
+            header.w3-container.w3-blue-gray
+                h1 Editar Perfil de #{docente.nome}
+            
+            .w3-container
+                form.w3-margin-bottom.w3-margin-top(method="POST" enctype="multipart/form-data")
+                    fieldset.w3-light-gray
+                        .w3-section
+                            label
+                                b Identificador: 
+                                | #{docente._id}
+                            input(type="hidden" name="_id" value=docente._id)
+                        .w3-section
+                            label
+                                b Foto de perfil:
+                            input.w3-input.w3-border.w3-white(type="file" name="foto")
+                        .w3-section
+                            label
+                                b Nome:
+                            input.w3-input.w3-border(type="text" name="nome" value=docente.nome)
+                        .w3-section
+                            label
+                                b Categoria:
+                            input.w3-input.w3-border(type="text" name="categoria" value=docente.categoria)
+                        .w3-section
+                            label
+                                b Filiação:
+                            input.w3-input.w3-border(type="text" name="filiacao" value=docente.filiacao)
+                        .w3-section
+                            label
+                                b Email:
+                            input.w3-input.w3-border(type="email" name="email" value=docente.email)
+                        .w3-section
+                            label
+                                b Página Web:
+                            input.w3-input.w3-border(type="url" name="webpage" value=docente.webpage)
+
+                    button.w3-button.w3-blue-gray.w3-right.w3-margin-top.w3-margin-bottom(type="submit") Confirmar 
+                        
+                a(href="/perfil/"+docente._id+"?token="+docente.token).w3-left.w3-margin-bottom
+                    button.w3-button.w3-blue-gray Voltar  
+
+            footer.w3-container.w3-blue-gray
+                h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                    a(href="https://www.w3schools.com/w3css/default.asp") w3.css
+    else 
+        .w3-card-4
+            header.w3-container.w3-blue-gray
+                h1 Editar Perfil de #{aluno.nome}
+
+            .w3-container
+                form.w3-margin-bottom.w3-margin-top(method="POST" enctype="multipart/form-data")
+                    fieldset.w3-light-gray
+                        .w3-section
+                            label
+                                b Identificador: 
+                                | #{aluno._id}
+                            input(type="hidden" name="_id" value=aluno._id)
+                        .w3-section
+                            label
+                                b Foto de perfil:
+                            input.w3-input.w3-border.w3-white(type="file" name="foto")
+                        .w3-section
+                            label
+                                b Nome:
+                            input.w3-input.w3-border(type="text" name="nome" value=aluno.nome)
+                        .w3-section
+                            label
+                                b Email:
+                            input.w3-input.w3-border(type="text" name="email" value=aluno.email)
+                        .w3-section
+                            label
+                                b Curso:
+                            input.w3-input.w3-border(type="text" name="curso" value=aluno.curso)
+                        
+                    button.w3-button.w3-blue-gray.w3-right.w3-margin-top.w3-margin-bottom(type="submit") Confirmar 
+                        
+                a(href="/perfil/"+aluno._id+"?token="+aluno.token).w3-left.w3-margin-bottom
+                    button.w3-button.w3-blue-gray Voltar 
+
+            footer.w3-container.w3-blue-gray
+                h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                    a(href="https://www.w3schools.com/w3css/default.asp") w3.css

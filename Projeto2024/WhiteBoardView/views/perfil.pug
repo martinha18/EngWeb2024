@@ -1,0 +1,90 @@
+extends layout
+
+block content
+  if isDocente 
+    .w3-card-4
+      header.w3-container.w3-blue-gray
+        h1 Perfil de #{docente.nome}
+
+      .w3-container.w3-margin-bottom.w3-margin-top
+        div(style="display: flex; justify-content: space-between;")
+          img(src="http://localhost:10000/filestore/"+docente.foto alt="FotoPerfil" class="w3-image" style="width:200px; height:200px; margin-bottom: 20px;")
+        
+          a(href="/")
+            button.w3-button.w3-blue-gray Sair 
+
+        ul.w3-ul.w3-border.w3-margin-bottom
+          li.w3-light-gray
+            b Identificador: 
+            | #{docente._id}
+          li.w3-light-gray
+            b Nome: 
+            | #{docente.nome}
+          li.w3-light-gray
+            b Categoria: 
+            | #{docente.categoria}
+          li.w3-light-gray
+            b Filiação: 
+            | #{docente.filiacao}
+          li.w3-light-gray
+            b Email: 
+            | #{docente.email}
+          if docente.webpage != null
+            li.w3-light-gray
+              b Webpage: 
+              a(href=docente.webpage) #{docente.webpage}
+              
+        a(href="/perfil/"+docente._id+"/editar?token="+docente.token).w3-right
+          button.w3-button.w3-blue-gray Editar Perfil
+
+        a(href="/perfil/"+docente._id+"/inscreverUC?token="+docente.token).w3-right.w3-margin-right
+          button.w3-button.w3-blue-gray Inscrever UC
+
+        a(href="/paginainicial/"+docente._id+"?token="+docente.token).w3-left
+          button.w3-button.w3-blue-gray Voltar 
+
+      footer.w3-container.w3-blue-gray
+        h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+          a(href="https://www.w3schools.com/w3css/default.asp") w3.css
+      
+  else 
+    .w3-card-4
+      header.w3-container.w3-blue-gray
+        h1 Perfil de #{aluno.nome}
+
+      .w3-container.w3-margin-bottom.w3-margin-top
+        div(style="display: flex; justify-content: space-between;")
+          img(src="http://localhost:10000/filestore/"+aluno.foto alt="FotoPerfil" class="w3-image" style="width:200px; height:200px; margin-bottom: 20px;")
+        
+          a(href="/")
+            button.w3-button.w3-blue-gray Sair 
+
+        ul.w3-ul.w3-border.w3-margin-bottom
+          li.w3-light-gray
+            b Identificador: 
+            | #{aluno._id}
+          li.w3-light-gray
+            b Nome: 
+            | #{aluno.nome}
+          li.w3-light-gray
+            b Email: 
+            | #{aluno.email}
+          li.w3-light-gray
+            b Curso: 
+            | #{aluno.curso}
+
+        a(href="/perfil/"+aluno._id+"/editar?token="+aluno.token).w3-right
+          button.w3-button.w3-blue-gray Editar Perfil
+
+        a(href="/perfil/"+aluno._id+"/inscreverUC?token="+aluno.token).w3-right.w3-margin-right
+          button.w3-button.w3-blue-gray Inscrever UC
+
+        a(href="/perfil/"+aluno._id+"/notas?token="+aluno.token).w3-right.w3-margin-right
+          button.w3-button.w3-blue-gray Ver notas
+
+        a(href="/paginainicial/"+aluno._id+"?token="+aluno.token).w3-left
+          button.w3-button.w3-blue-gray Voltar 
+
+      footer.w3-container.w3-blue-gray
+        h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+          a(href="https://www.w3schools.com/w3css/default.asp") w3.css

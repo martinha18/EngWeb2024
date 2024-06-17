@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue-gray
+            .title-container(style="display: flex; align-items: center; justify-content: space-between;")
+                h1= title
+                .image-container.w3-right
+                    a(href="/perfil/"+user._id+"?token="+user.token)
+                        img(src="http://localhost:10000/filestore/"+user.foto alt="Perfil" class="w3-image" style="width:50px; height:50px;")
+
+        .w3-container 
+            h2
+                b Unidades Curriculares:
+            ul.w3-ul.w3-white.w3-margin-bottom(style="list-style-type: none; padding: 0; border: none;")
+                each uc in lista 
+                    li(style="border-bottom: none;")
+                        if aluno
+                            a.w3-button.w3-block.w3-light-gray(style="height: 100px;" href="/ucs/" + uc._id + "/aluno/"+ user._id+"?token="+user.token)
+                                p #{uc.titulo}
+                                p (#{uc._id})
+                        else
+                            a.w3-button.w3-block.w3-light-gray(style="height: 100px;" href="/ucs/" + uc._id + "/docente/"+ user._id+"?token="+user.token)
+                                p #{uc.titulo}
+                                p (#{uc._id})
+
+        footer.w3-container.w3-blue-gray
+            h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                a(href="https://www.w3schools.com/w3css/default.asp") w3.css

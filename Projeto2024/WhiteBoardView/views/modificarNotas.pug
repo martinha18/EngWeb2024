@@ -1,0 +1,47 @@
+extends layout 
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue-gray
+            h1 Modificar Notas
+
+        form.w3-container.w3-margin-top(id="searchForm2" method="POST")
+            .w3-row
+                .w3-col(style="width:auto; display: flex; align-items: center;")
+                    button.w3-button.w3-blue-gray.w3-margin-right(type="submit") Procurar aluno  
+                .w3-rest
+                    input.w3-input.w3-border(type="text" placeholder="axxx" id="studentIdInput" name="studentIdInput")
+            input(type="hidden" name="formType" value="form2")
+
+
+
+        form.w3-container(id="searchForm1" method="POST")
+            input(type="hidden" name="formType" value="form1")
+            each aluno in uc.alunos.sort()
+                - var alunoNotas = uc.notas.find(nota => nota.aluno === aluno)
+                fieldset.w3-light-gray.w3-margin-top
+                    .w3-section
+                        label.w3-text-black(style="font-weight: bold;") ID da Aluno: 
+                        |  #{aluno}  
+
+                    .w3-section
+                        label.w3-text-black(style="font-weight: bold;") Nota do projeto:  
+                        input.w3-input.w3-border(name=`notaProjeto-${aluno}` id=`notaProjeto-${aluno}` placeholder="Insira a nota do projeto" pattern="^(0|[0-9](,[0-9]{1,2})?|1[0-9](,[0-9]{1,2})?|20)$" value=alunoNotas ? alunoNotas.projeto : "")
+
+                    .w3-section
+                        label.w3-text-black(style="font-weight: bold;") Nota do teste:  
+                        input.w3-input.w3-border(name=`notaTeste-${aluno}` id=`notaTeste-${aluno}` placeholder="Insira a nota do teste" pattern="^(0|[0-9](,[0-9]{1,2})?|1[0-9](,[1-90{1,2})?|20)$" value=alunoNotas ? alunoNotas.teste : "")
+
+                    .w3-section
+                        label.w3-text-black(style="font-weight: bold;") Nota do exame:  
+                        input.w3-input.w3-border(name=`notaExame-${aluno}` id=`notaExame-${aluno}` placeholder="Insira a nota do exame" pattern="^(0|[0-9](,[0-9]{1,2})?|1[0-9](,[1-90{1,2})?|20)$" value=alunoNotas ? alunoNotas.exame : "")
+
+            .w3-section   
+                a(href="/ucs/"+idUC+"/docente/"+idDocente+"?token="+docente.token)
+                    button.w3-button.w3-blue-gray Voltar
+
+                button.w3-button.w3-blue-gray.w3-right(type="submit") Submeter 
+
+        footer.w3-container.w3-blue-gray
+            h4.w3-center WhiteBoard, Jun 2024 - Powered by 
+                a(href="https://www.w3schools.com/w3css/default.asp") w3.css

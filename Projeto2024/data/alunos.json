@@ -1,0 +1,18 @@
+[
+    {
+        "_id": "a1",
+        "nome": "Maria Albertina de Albuquerque",
+        "foto": "a1.jpeg",
+        "email": "a1@alunos.uminho.pt",
+        "curso": "Engenharia Biomédica - LEBIOM",
+        "password": "1234"
+    },
+    {
+        "_id": "a2",
+        "nome": "João de Andrade e Deus",
+        "foto": "a2.jpeg",
+        "email": "a2@alunos.uminho.pt",
+        "curso": "Estudos Portugueses e Lusófonos - LEPL",
+        "password": "1111"
+    }
+]
