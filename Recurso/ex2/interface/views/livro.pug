@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  .w3-card-4
+    header.w3-container.w3-black
+      h1 Livro #{Livro.id}
+    .w3-container
+      ul.w3-ul.w3-card-4(style='width:70%')
+    li
+      b ID: 
+      | #{Livro._id}
+    li
+      b ID Livro: 
+      | #{Livro.id}
+    li
+      b Anúncio: 
+      | #{Livro.anuncio}
+    li
+      b Procedimento: 
+      | #{Livro.procedimento}
+    li
+      b Objeto: 
+      | #{Livro.objeto}
+    li
+      b Publicação: 
+      | #{Livro.publicacao}
+    li
+      b Celebração: 
+      | #{Livro.celebracao}
+    li
+      b Preço: 
+      | #{Livro.preco}
+    li
+      b Prazo: 
+      | #{Livro.prazo}
+    li
+      b NIPC: 
+      | #{Livro.nipc}
+    li
+      b Entidade: 
+      | #{Livro.entidade}
+    li
+      b Fundamentação: 
+      | #{Livro.fundamentacao}
+    footer.w3-container.w3-black
+      h5 Teste EW 2024  
+        a(href='/') [ Voltar ]

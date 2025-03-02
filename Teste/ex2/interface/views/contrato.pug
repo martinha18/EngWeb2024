@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  .w3-card-4
+    header.w3-container.w3-black
+      h1 Contrato #{contrato.id}
+    .w3-container
+      ul.w3-ul.w3-card-4(style='width:70%')
+    li
+      b ID: 
+      | #{contrato._id}
+    li
+      b ID Contrato: 
+      | #{contrato.id}
+    li
+      b Anúncio: 
+      | #{contrato.anuncio}
+    li
+      b Procedimento: 
+      | #{contrato.procedimento}
+    li
+      b Objeto: 
+      | #{contrato.objeto}
+    li
+      b Publicação: 
+      | #{contrato.publicacao}
+    li
+      b Celebração: 
+      | #{contrato.celebracao}
+    li
+      b Preço: 
+      | #{contrato.preco}
+    li
+      b Prazo: 
+      | #{contrato.prazo}
+    li
+      b NIPC: 
+      | #{contrato.nipc}
+    li
+      b Entidade: 
+      | #{contrato.entidade}
+    li
+      b Fundamentação: 
+      | #{contrato.fundamentacao}
+    footer.w3-container.w3-black
+      h5 Teste EW 2024  
+        a(href='/') [ Voltar ]
